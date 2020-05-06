@@ -141,17 +141,30 @@ function writePassword() {
   var randomNumbers =
     numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
 
+  var randomSpecial =
+    specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+
+  var randomLower =
+    lowerCasedCharacters[
+      Math.floor(Math.random() * lowerCasedCharacters.length)
+    ];
+
+  var randomUpper =
+    upperCasedCharacters[
+      Math.floor(Math.random() * upperCasedCharacters.length)
+    ];
+
   if (specialChars === true) {
-    console.log("true");
+    console.log(randomSpecial);
   }
   if (numericChars === true) {
     console.log(randomNumbers);
   }
   if (lowercaseChars === true) {
-    console.log("True");
+    console.log(randomLower);
   }
   if (uppercaseChars === true) {
-    console.log("True");
+    console.log(randomUpper);
   }
 
   console.log(typeof length);
