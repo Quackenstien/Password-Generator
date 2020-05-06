@@ -27,21 +27,10 @@ var specialCharacters = [
   "_",
   ".",
 ];
-​
+
 // Array of numeric characters to be included in password
-var numericCharacters = [
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-];
-​
+var numericCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
 // Array of lowercase characters to be included in password
 var lowerCasedCharacters = [
   "a",
@@ -71,7 +60,7 @@ var lowerCasedCharacters = [
   "y",
   "z",
 ];
-​
+
 // Array of uppercase characters to be included in password
 var upperCasedCharacters = [
   "A",
@@ -102,16 +91,15 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-passwordText.value = password;
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 
   function generatePassword() {
     //Prompt pass
-    var length = prompt("How long would you like your password o be?");
+    var length = prompt("How long would you like your password to be (8-128)?");
     length = parseInt(length);
 
     //Checking to see if number is valid
@@ -135,13 +123,13 @@ function writePassword() {
     "Click okay to confirm including special characters"
   );
   var numericChars = confirm(
-    "Click okay to confirm including special characters"
+    "Click okay to confirm including numeric characters"
   );
   var lowercaseChars = confirm(
-    "Click okay to confirm including special characters"
+    "Click okay to confirm including lowercase characters"
   );
   var uppercaseChars = confirm(
-    "Click okay to confirm including special characters"
+    "Click okay to confirm including uppercase characters"
   );
 
   //If none selected alert
@@ -150,10 +138,25 @@ function writePassword() {
     return;
   }
 
+  var randomNumbers =
+    numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+
+  if (specialChars === true) {
+    console.log("true");
+  }
+  if (numericChars === true) {
+    console.log(randomNumbers);
+  }
+  if (lowercaseChars === true) {
+    console.log("True");
+  }
+  if (uppercaseChars === true) {
+    console.log("True");
+  }
+
   console.log(typeof length);
   console.log(length);
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
