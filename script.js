@@ -117,58 +117,63 @@ function writePassword() {
       alert("Your password is to long");
       return;
     }
+    //Confirm character prompts
+    var specialChars = confirm(
+      "Click okay to confirm including special characters"
+    );
+    var numericChars = confirm(
+      "Click okay to confirm including numeric characters"
+    );
+    var lowercaseChars = confirm(
+      "Click okay to confirm including lowercase characters"
+    );
+    var uppercaseChars = confirm(
+      "Click okay to confirm including uppercase characters"
+    );
+
+    //If none selected alert
+    if (!specialChars && !numericChars && !lowercaseChars && !uppercaseChars) {
+      alert("You have to pick one.");
+      return;
+    }
+
+    var randomNumbers =
+      numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+
+    var randomSpecial =
+      specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+
+    var randomLower =
+      lowerCasedCharacters[
+        Math.floor(Math.random() * lowerCasedCharacters.length)
+      ];
+
+    var randomUpper =
+      upperCasedCharacters[
+        Math.floor(Math.random() * upperCasedCharacters.length)
+      ];
+
+    if (specialChars === true) {
+      console.log(randomSpecial);
+    }
+    if (numericChars === true) {
+      console.log(randomNumbers);
+    }
+    if (lowercaseChars === true) {
+      console.log(randomLower);
+    }
+    if (uppercaseChars === true) {
+      console.log(randomUpper);
+    }
+    var answer = randomLower,
+      randomUpper,
+      randomSpecial,
+      randomNumbers;
+
+    // console.log(typeof length);
+    // console.log(length);
+    return answer;
   }
-  //Confirm character prompts
-  var specialChars = confirm(
-    "Click okay to confirm including special characters"
-  );
-  var numericChars = confirm(
-    "Click okay to confirm including numeric characters"
-  );
-  var lowercaseChars = confirm(
-    "Click okay to confirm including lowercase characters"
-  );
-  var uppercaseChars = confirm(
-    "Click okay to confirm including uppercase characters"
-  );
-
-  //If none selected alert
-  if (!specialChars && !numericChars && !lowercaseChars && !uppercaseChars) {
-    alert("You have to pick one.");
-    return;
-  }
-
-  var randomNumbers =
-    numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
-
-  var randomSpecial =
-    specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
-
-  var randomLower =
-    lowerCasedCharacters[
-      Math.floor(Math.random() * lowerCasedCharacters.length)
-    ];
-
-  var randomUpper =
-    upperCasedCharacters[
-      Math.floor(Math.random() * upperCasedCharacters.length)
-    ];
-
-  if (specialChars === true) {
-    console.log(randomSpecial);
-  }
-  if (numericChars === true) {
-    console.log(randomNumbers);
-  }
-  if (lowercaseChars === true) {
-    console.log(randomLower);
-  }
-  if (uppercaseChars === true) {
-    console.log(randomUpper);
-  }
-
-  console.log(typeof length);
-  console.log(length);
 }
 
 // Add event listener to generate button
