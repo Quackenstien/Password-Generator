@@ -137,42 +137,51 @@ function writePassword() {
       return;
     }
 
-    var randomNumbers =
-      numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+    //var of an empty string to be filled later
+    var password = "";
 
-    var randomSpecial =
-      specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+    //using a loop to gen a random index from our init arrays if character choice is true
+    for (let index = 0; index < length; index++) {
+      if (specialChars) {
+        password += getRandomValue(specialCharacters);
+      }
+      if (numericChars) {
+        password += getRandomValue(numericCharacters);
+      }
+      if (lowercaseChars) {
+        password += getRandomValue(lowerCasedCharacters);
+      }
+      if (uppercaseChars) {
+        password += getRandomValue(upperCasedCharacters);
+      }
+    }
 
-    var randomLower =
-      lowerCasedCharacters[
-        Math.floor(Math.random() * lowerCasedCharacters.length)
-      ];
+    //Returns value of password and slices it by
+    return password.slice(0, length);
 
-    var randomUpper =
-      upperCasedCharacters[
-        Math.floor(Math.random() * upperCasedCharacters.length)
-      ];
+    //generating a random item from any given array
+    function getRandomValue(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
 
-    if (specialChars === true) {
-      console.log(randomSpecial);
-    }
-    if (numericChars === true) {
-      console.log(randomNumbers);
-    }
-    if (lowercaseChars === true) {
-      console.log(randomLower);
-    }
-    if (uppercaseChars === true) {
-      console.log(randomUpper);
-    }
-    var answer = randomLower,
-      randomUpper,
-      randomSpecial,
-      randomNumbers;
+    // var randomNumbers =
+    //   numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+
+    // var randomSpecial =
+    //   specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+
+    // var randomLower =
+    //   lowerCasedCharacters[
+    //     Math.floor(Math.random() * lowerCasedCharacters.length)
+    //   ];
+
+    // var randomUpper =
+    //   upperCasedCharacters[
+    //     Math.floor(Math.random() * upperCasedCharacters.length)
+    //   ];
 
     // console.log(typeof length);
     // console.log(length);
-    return answer;
   }
 }
 
